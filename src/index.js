@@ -24,7 +24,7 @@ const createTask = (task) => {
   let todoObj = '';
   if (task.completed === true) {
     todoObj = `
-        <article id="${task.index}" class="task-item" draggable="true">
+        <article id="${task.index}" class="task-item">
           <input type='checkbox' name='completed' class="checkbox" checked>
           <span class='task-description completed' id="desc-${task.index}" contenteditable>${task.description}</span>
           <i class="bi bi-three-dots-vertical"></i>
@@ -32,7 +32,7 @@ const createTask = (task) => {
         </article>`;
   } else {
     todoObj = `
-          <article  id="${task.index}" class="task-item" draggable="true">
+          <article  id="${task.index}" class="task-item">
             <input type='checkbox' name='completed' class="checkbox">
             <span class='task-description' id="desc-${task.index}" contenteditable>${task.description}</span>
             <i class="bi bi-three-dots-vertical"></i>
