@@ -1,7 +1,6 @@
 import './style.css';
-import { displayTasks } from './storage.js';
-import checkboxesEvent from './status-update.js';
+import { displayTasks } from './storage';
+import checkboxesEvent from './status-update';
 
 displayTasks();
 checkboxesEvent();
-dragAndDrop();

@@ -1,12 +1,14 @@
 ### This is a simple To-do list project
 
 ### Built With
->JavaScript
->HTML & CSS
->Webpack@5.44.0
->Bootstrap 5
+
+- JavaScript
+- HTML & CSS
+- Webpack@5.53.0
+- Bootstrap 5
 
 ### Clone Repo
+
 To get a local copy up and running follow these simple steps:
 
 - `Open terminal Ctrl + Alt + T`
@@ -22,11 +24,13 @@ To get a local copy up and running follow these simple steps:
 - `visit localhost:8080`
 
 ## Prerequisites
+
 - `Browser (Chrome preferably)`
 - `VScode`
 - `Git`
 
 ### Author
+
 👤 Adonike Sylvester
 
 - [GitHub](https://github.com/sly-cloud)
@@ -39,11 +43,9 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/francisuloko/to-do-list/issues).
 
-
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
 
 ## Acknowledgments
 
