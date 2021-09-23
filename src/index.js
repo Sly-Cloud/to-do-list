@@ -5,12 +5,12 @@ const todoList = document.getElementById('todo-list');
 const list = [
   {
     description: 'Start project',
-    completed: true,
+    completed: false,
     index: 0,
   },
   {
     description: 'Install Webpack',
-    completed: true,
+    completed: false,
     index: 1,
   },
   {
