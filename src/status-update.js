@@ -1,4 +1,4 @@
-import { list, save } from './storage.js';
+import { list, save } from './storage';
 
 export default function checkboxesEvent() {
   const temp = list;
