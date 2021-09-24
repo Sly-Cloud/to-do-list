@@ -68,7 +68,7 @@ export const edit = () => {
       });
     });
   }
-}
+};
 
 export const clear = () => {
   document.getElementById('clear-complete').addEventListener('click', () => {
@@ -79,7 +79,7 @@ export const clear = () => {
     checkboxesEvent();
     save();
   });
-}
+};
 
 export const add = () => {
   document.getElementById('task-entry').addEventListener('keypress', (event) => {
@@ -96,4 +96,4 @@ export const add = () => {
       checkboxesEvent();
     }
   });
-}
+};

@@ -1,6 +1,6 @@
 import { displayTasks, items } from './add-remove';
 
-export let list = [];
+export const list = [];
 
 if (localStorage.getItem('list')) {
   list = JSON.parse(localStorage.getItem('list'));
