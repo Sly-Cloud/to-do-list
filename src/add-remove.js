@@ -13,7 +13,7 @@ const createTask = (task) => {
       <article id="${task.index}" class="task-item">
         <input type='checkbox' name='completed' class="checkbox" checked>
         <span class='task-description completed' id="desc-${task.index}" contenteditable>${task.description}</span>
-        <i class="bi bi-three-dots-vertical"></i>
+        <i class="bi bi-three-dots-vertical hide"></i>
         <i class="bi bi-trash"></i>
       </article>`;
   } else {
@@ -21,7 +21,7 @@ const createTask = (task) => {
         <article  id="${task.index}" class="task-item">
           <input type='checkbox' name='completed' class="checkbox">
           <span class='task-description' id="desc-${task.index}" contenteditable>${task.description}</span>
-          <i class="bi bi-three-dots-vertical"></i>
+          <i class="bi bi-three-dots-vertical hide"></i>
           <i class="bi bi-trash"></i>
         </article>`;
   }
@@ -50,7 +50,7 @@ export const displayTasks = () => {
   save();
 };
 
-export function edit() {
+export const edit = () => {
   const editables = document.querySelectorAll('[contenteditable]');
   for (let i = 0; i < editables.length; i += 1) {
     editables[i].addEventListener('click', () => {
@@ -62,7 +62,6 @@ export function edit() {
           list[i].description = JSON.parse(localStorage.getItem('edit'));
           save();
         }
-        // editables[i].parentNode.children[3].classList.remove('show')
         editables[i].parentNode.children[2].classList.remove('hide');
         edit();
         remove();
@@ -71,7 +70,7 @@ export function edit() {
   }
 }
 
-export function clear() {
+export const clear = () => {
   document.getElementById('clear-complete').addEventListener('click', () => {
     const callback = (task) => task.completed === false;
     const todo = list.filter(callback);
@@ -82,7 +81,7 @@ export function clear() {
   });
 }
 
-export function add() {
+export const add = () => {
   document.getElementById('task-entry').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
