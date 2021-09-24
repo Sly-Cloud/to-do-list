@@ -1,6 +1,7 @@
+// eslint-disable-next-line import/no-cycle
 import { displayTasks, items } from './add-remove';
-
-export const list = [];
+// eslint-disable-next-line import/no-mutable-exports
+export let list = [];
 
 if (localStorage.getItem('list')) {
   list = JSON.parse(localStorage.getItem('list'));
