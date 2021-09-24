@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import checkboxesEvent, {
   list, save, fixIndex, setList, remove,
-} from './status-update.js';
+} from './status-update';
 
 const todoList = document.getElementById('todo-list');
 export const items = document.getElementsByClassName('task-item');
