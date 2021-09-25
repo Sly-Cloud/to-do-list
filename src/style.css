@@ -105,7 +105,6 @@ body {
   display: none;
 }
 
-.show,
-.bi-trash {
+.show {
   display: block;
 }
