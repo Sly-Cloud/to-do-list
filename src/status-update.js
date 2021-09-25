@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { displayTasks, items } from './add-remove';
+import {
+  clear, displayTasks,
+} from './add-remove.js';
 // eslint-disable-next-line import/no-mutable-exports
 export let list = [];
 
@@ -20,15 +22,14 @@ export function fixIndex(list) {
 export function setList(filter) {
   list = [];
   for (let i = 0; i < filter.length; i += 1) {
-    list[i] = filter[i];
-    save();
-    displayTasks();
+    list.push(filter[i]);
   }
+  save();
+  displayTasks();
 }
 
 export default function checkboxesEvent() {
   const temp = list;
-
   const checkboxes = document.getElementsByClassName('checkbox');
   for (let i = 0; i < checkboxes.length; i += 1) {
     checkboxes[i].addEventListener('change', () => {
@@ -40,23 +41,25 @@ export default function checkboxesEvent() {
         document.getElementById(`desc-${temp[i].index}`).classList.add('completed');
       }
       setList(temp);
+      checkboxesEvent();
+      clear();
     });
   }
 }
 
 export function remove() {
+  const editables = document.querySelectorAll('[contenteditable]');
   const temp = list;
-  for (let i = 0; i < items.length; i += 1) {
-    items[i].children[3].addEventListener('click', (event) => {
-      if (event.target) {
+  for (let i = 0; i < editables.length; i += 1) {
+    editables[i].parentNode.children[2].addEventListener('click', () => {
+      editables[i].parentNode.children[3].classList.add('show');
+      editables[i].parentNode.children[2].classList.add('hide');
+      editables[i].nextElementSibling.nextElementSibling.addEventListener('click', () => {
         temp.splice(i, 1);
         fixIndex(temp);
         setList(temp);
         save();
-      }
-      checkboxesEvent();
-      displayTasks();
-      remove();
+      });
     });
   }
 }
