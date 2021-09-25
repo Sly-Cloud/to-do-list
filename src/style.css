@@ -101,8 +101,7 @@ body {
   text-decoration: black line-through;
 }
 
-.hide,
-.bi-trash {
+.hide {
   display: none;
 }
 
