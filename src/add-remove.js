@@ -13,16 +13,16 @@ const createTask = (task) => {
       <article id="${task.index}" class="task-item">
         <input type='checkbox' name='completed' class="checkbox" checked>
         <span class='task-description completed' id="desc-${task.index}" contenteditable>${task.description}</span>
-        <i class="bi bi-three-dots-vertical hide"></i>
-        <i class="bi bi-trash"></i>
+        <i class="bi bi-three-dots-vertical"></i>
+        <i class="bi bi-trash hide"></i>
       </article>`;
   } else {
     todoObj = `
         <article  id="${task.index}" class="task-item">
           <input type='checkbox' name='completed' class="checkbox">
           <span class='task-description' id="desc-${task.index}" contenteditable>${task.description}</span>
-          <i class="bi bi-three-dots-vertical hide"></i>
-          <i class="bi bi-trash"></i>
+          <i class="bi bi-three-dots-vertical"></i>
+          <i class="bi bi-trash hide"></i>
         </article>`;
   }
 
@@ -47,28 +47,22 @@ export const displayTasks = () => {
     createTask(task);
   });
   checkboxesEvent();
+  remove();
   save();
 };
 
-export const edit = () => {
+export function edit() {
   const editables = document.querySelectorAll('[contenteditable]');
   for (let i = 0; i < editables.length; i += 1) {
-    editables[i].addEventListener('click', () => {
-      editables[i].parentNode.children[3].classList.add('show');
-      editables[i].parentNode.children[2].classList.add('hide');
-      editables[i].addEventListener('blur', (event) => {
-        if (event.target) {
-          localStorage.setItem('edit', JSON.stringify(editables[i].innerHTML));
-          list[i].description = JSON.parse(localStorage.getItem('edit'));
-          save();
-        }
-        editables[i].parentNode.children[2].classList.remove('hide');
-        edit();
-        remove();
-      });
+    editables[i].addEventListener('blur', () => {
+      localStorage.setItem('edit', JSON.stringify(editables[i].innerHTML));
+      list[i].description = JSON.parse(localStorage.getItem('edit'));
+      save();
+      displayTasks();
+      edit();
     });
   }
-};
+}
 
 export const clear = () => {
   document.getElementById('clear-complete').addEventListener('click', () => {
@@ -91,8 +85,8 @@ export const add = () => {
       description.value = '';
       list.push(task);
       save();
-      remove();
       displayTasks();
+      edit();
       checkboxesEvent();
     }
   });
