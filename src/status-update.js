@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import {
   clear, displayTasks,
-} from './add-remove.js';
+} from './add-remove';
 // eslint-disable-next-line import/no-mutable-exports
 export let list = [];
 
