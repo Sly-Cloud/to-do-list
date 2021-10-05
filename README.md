@@ -7,6 +7,10 @@
 - Webpack@5.53.0
 - Bootstrap 5
 
+### Live version
+
+You can checkout the [live version](https://sly-cloud.github.io/to-do-list/dist)
+
 ### Clone Repo
 
 To get a local copy up and running follow these simple steps:
